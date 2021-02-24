@@ -1,7 +1,7 @@
 ---
 title: "Introduction to probability"
-author: ""
-date: ""
+author: "Marie Cheng"
+date: "2/22/21"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -48,18 +48,18 @@ xtabs(~ Treatment + Improved, data = Arthritis) %>%
   addmargins()
 ```
 
-- How many patients were enrolled in the clinical trial?
+- How many patients were enrolled in the clinical trial? 84
 
-- What is the probability a randomly selected patient received the placebo?
+- What is the probability a randomly selected patient received the placebo? 42/84
 
 - What is the probability a randomly selected patient received the placebo
-  and had a marked improvement?
+  and had a marked improvement? 7/84
   
 - What is the probability a randomly selected patient received the placebo
-  and the treatment?
+  and the treatment? 0
   
 - What is the probability a randomly selected patient had some improvement or
-  was on the treatment?
+  was on the treatment? 48/84
 
 ## Using computer simulations to calculate probabilities
 
@@ -73,8 +73,13 @@ marbles <- c("red", "red", "white", "red", "blue", "blue", "red", "blue")
 ```
 
 Suppose we draw a single marble from our imaginary box, where all the marbles
-are equally likely to be selected. What is the probability the marble is blue? 
-How about white?
+are equally likely to be selected. What is the probability the marble is blue?
+
+3/8
+
+How about white? 
+
+1/8
 
 We can simulate this "drawing" with the `sample()` function.
 
@@ -102,6 +107,8 @@ prop.table(counts)
 
 How close is this value to the "true" probability?
 
+Very close because we drew so many times
+
 **To summarize our process:**
 
 1. We defined the sample space for our experiment - `marbles`
@@ -117,6 +124,8 @@ color if we make two draws with replacement? We haven't discussed how to
 compute this theoretically yet, but this is what computers are good at.
 
 Before we do this, what is your guess as to what the probability will be?
+
+Less than 50%
 
 We'll still use `sample()` to run our simulation many times, but we'll
 use `dplyr` functions to compute the relative frequencies.
